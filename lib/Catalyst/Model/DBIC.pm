@@ -5,7 +5,7 @@ use base 'Catalyst::Base';
 use NEXT;
 use DBIx::Class::Loader;
 
-our $VERSION = '0.09';
+our $VERSION = '0.10';
 
 __PACKAGE__->mk_accessors('loader');
 
@@ -65,7 +65,6 @@ sub new {
           if $c->debug;
     }
     for my $class ( $self->loader->classes ) {
-        $class->autoupdate(1);
         $c->components->{$class} ||= bless {%$self}, $class;
         no strict 'refs';
         *{"$class\::new"} = sub { bless {%$self}, $class };

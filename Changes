@@ -1,4 +1,7 @@
 Revision history for Perl extension Catalyst::Model::DBIC.
 
-0.01  Fri Oct 07 22:00:00 2005
+0.10  Tue Oct 11 00:00:00 2005
+        - There is no autoupdate() in DBIC
+
+0.09  Fri Oct 07 22:00:00 2005
         - first release
