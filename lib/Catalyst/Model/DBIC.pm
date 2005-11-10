@@ -5,7 +5,7 @@ use base 'Catalyst::Base';
 use NEXT;
 use DBIx::Class::Loader;
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 __PACKAGE__->mk_accessors('loader');
 
@@ -33,10 +33,8 @@ Catalyst::Model::DBIC - DBIC Model Class
 
     1;
 
-    # As object method
-    $c->comp('MyApp::Model::DBIC::Table')->search(...);
+    $c->model('DBIC')->table('foo')->search(...);
 
-    # As class method
     MyApp::Model::DBIC::Table->search(...);
 
 =head1 DESCRIPTION
@@ -44,10 +42,13 @@ Catalyst::Model::DBIC - DBIC Model Class
 This is the C<DBIx::Class> model class. It's built on top of 
 C<DBIx::Class::Loader>.
 
-=head2 new
+=head1 METHODS
 
-Initializes DBIx::Class::Loader and loads classes using the class
-config. Also attempts to borg all the classes.
+=over 4
+
+=item new
+
+Initializes DBIx::Class::Loader and loads classes using the class config.
 
 =cut
 
@@ -56,7 +57,6 @@ sub new {
     $self = $self->NEXT::new($c);
     $self->{namespace}               ||= ref $self;
     $self->{additional_base_classes} ||= ();
-    push @{ $self->{additional_base_classes} }, ref $self;
     eval { $self->loader( DBIx::Class::Loader->new(%$self) ) };
     if ($@) { $c->log->debug(qq/Couldn't load tables "$@"/) if $c->debug }
     else {
@@ -64,13 +64,18 @@ sub new {
             'Loaded tables "' . join( ' ', $self->loader->tables ) . '"' )
           if $c->debug;
     }
-    for my $class ( $self->loader->classes ) {
-        $c->components->{$class} ||= bless {%$self}, $class;
-        no strict 'refs';
-        *{"$class\::new"} = sub { bless {%$self}, $class };
-    }
     return $self;
 }
+
+=item $self->table($name)
+
+Returns the class for given table name.
+
+=cut
+
+sub table { shift->loader->find_class(shift) }
+
+=back
 
 =head1 SEE ALSO
 

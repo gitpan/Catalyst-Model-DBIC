@@ -118,7 +118,7 @@ __PACKAGE__->config(
 
 =head1 NAME
 
-[% class %] - DBIC Model Component
+[% class %] - DBIC Model Class
 
 =head1 SYNOPSIS
 
@@ -126,7 +126,7 @@ See L<[% app %]>
 
 =head1 DESCRIPTION
 
-DBIC Model Component.
+DBIC Model Class.
 
 =head1 AUTHOR
 
@@ -134,8 +134,8 @@ DBIC Model Component.
 
 =head1 LICENSE
 
-This library is free software . You can redistribute it and/or modify
-it under the same terms as perl itself.
+This library is free software, you can redistribute it and/or modify
+it under the same terms as Perl itself.
 
 =cut
 
@@ -144,6 +144,8 @@ __tableclass__
 package [% tableclass %];
 
 use strict;
+use warnings;
+use base 'DBIx::Class::Core';
 
 =head1 NAME
 
@@ -163,8 +165,8 @@ DBIC Table Class.
 
 =head1 LICENSE
 
-This library is free software . You can redistribute it and/or modify
-it under the same terms as perl itself.
+This library is free software, you can redistribute it and/or modify
+it under the same terms as Perl itself.
 
 =cut
 
