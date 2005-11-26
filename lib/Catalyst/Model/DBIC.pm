@@ -5,7 +5,7 @@ use base 'Catalyst::Base';
 use NEXT;
 use DBIx::Class::Loader;
 
-our $VERSION = '0.11';
+our $VERSION = '0.12';
 
 __PACKAGE__->mk_accessors('loader');
 

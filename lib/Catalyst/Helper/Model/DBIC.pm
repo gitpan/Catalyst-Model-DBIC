@@ -118,7 +118,7 @@ __PACKAGE__->config(
 
 =head1 NAME
 
-[% class %] - DBIC Model Class
+[% class %] - Catalyst DBIC Model
 
 =head1 SYNOPSIS
 
@@ -126,7 +126,7 @@ See L<[% app %]>
 
 =head1 DESCRIPTION
 
-DBIC Model Class.
+Catalyst DBIC Model.
 
 =head1 AUTHOR
 
@@ -149,7 +149,7 @@ use base 'DBIx::Class::Core';
 
 =head1 NAME
 
-[% tableclass %] - DBIC Table Class
+[% tableclass %] - Catalyst DBIC Table Model
 
 =head1 SYNOPSIS
 
@@ -157,7 +157,7 @@ See L<[% app %]>
 
 =head1 DESCRIPTION
 
-DBIC Table Class.
+Catalyst DBIC Table Model.
 
 =head1 AUTHOR
 
