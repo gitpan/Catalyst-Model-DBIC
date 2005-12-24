@@ -1,11 +1,11 @@
 package Catalyst::Model::DBIC;
 
 use strict;
-use base 'Catalyst::Base';
+use base 'Catalyst::Model';
 use NEXT;
 use DBIx::Class::Loader;
 
-our $VERSION = '0.12';
+our $VERSION = '0.13';
 
 __PACKAGE__->mk_accessors('loader');
 
@@ -53,8 +53,8 @@ Initializes DBIx::Class::Loader and loads classes using the class config.
 =cut
 
 sub new {
-    my ( $self, $c ) = @_;
-    $self = $self->NEXT::new($c);
+    my ( $self, $c, $config ) = @_;
+    $self = $self->NEXT::new($c, $config);
     $self->{namespace}               ||= ref $self;
     $self->{additional_base_classes} ||= ();
     eval { $self->loader( DBIx::Class::Loader->new(%$self) ) };
