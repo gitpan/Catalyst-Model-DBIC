@@ -5,13 +5,13 @@ use base 'Catalyst::Model';
 use NEXT;
 use DBIx::Class::Loader;
 
-our $VERSION = '0.13';
+our $VERSION = '0.14';
 
 __PACKAGE__->mk_accessors('loader');
 
 =head1 NAME
 
-Catalyst::Model::DBIC - DBIC Model Class
+Catalyst::Model::DBIC - (DEPRECATED) DBIC Model Class
 
 =head1 SYNOPSIS
 
@@ -36,6 +36,12 @@ Catalyst::Model::DBIC - DBIC Model Class
     $c->model('DBIC')->table('foo')->search(...);
 
     MyApp::Model::DBIC::Table->search(...);
+
+=head1 DEPRECATION NOTICE
+
+This module has been deprecated in favor of the schema-based
+L<Catalyst::Model::DBIC::Schema>. This module should only be considered
+as a temporary measure if you are porting from L<Catalyst::Model::CDBI>.
 
 =head1 DESCRIPTION
 
@@ -79,7 +85,7 @@ sub table { shift->loader->find_class(shift) }
 
 =head1 SEE ALSO
 
-L<Catalyst>, L<DBIx::Class> L<DBIx::Class::Loader>
+L<Catalyst>, L<DBIx::Class> L<Catalyst::Model::DBIC::Schema>
 
 =head1 AUTHOR
 

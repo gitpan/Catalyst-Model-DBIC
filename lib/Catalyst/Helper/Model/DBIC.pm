@@ -6,11 +6,17 @@ use File::Spec;
 
 =head1 NAME
 
-Catalyst::Helper::Model::DBIC - Helper for DBIC Models
+Catalyst::Helper::Model::DBIC - (DEPRECATED) Helper for DBIC Models
 
 =head1 SYNOPSIS
 
     script/create.pl model DBIC DBIC dsn user password
+
+=head1 DEPRECATION NOTICE
+
+This module has been deprecated in favor of the schema-based
+L<Catalyst::Model::DBIC::Schema>. This module should only be considered
+as a temporary measure if you are porting from L<Catalyst::Model::CDBI>.
 
 =head1 DESCRIPTION
 
@@ -35,6 +41,9 @@ Makes tests for the DBIC Model.
 
 sub mk_compclass {
     my ( $self, $helper, $dsn, $user, $pass ) = @_;
+    
+    warn 'This module has been deprecated in favor of Catalyst::Model::DBIC::Schema';
+    
     $helper->{dsn}  = $dsn  || '';
     $helper->{user} = $user || '';
     $helper->{pass} = $pass || '';
