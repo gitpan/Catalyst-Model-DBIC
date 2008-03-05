@@ -1,11 +1,13 @@
 package Catalyst::Model::DBIC;
 
 use strict;
+use warnings;
+
 use base 'Catalyst::Model';
 use NEXT;
 use DBIx::Class::Loader;
 
-our $VERSION = '0.15';
+our $VERSION = '0.16';
 
 __PACKAGE__->mk_accessors('loader');
 
@@ -89,7 +91,7 @@ L<Catalyst>, L<DBIx::Class> L<Catalyst::Model::DBIC::Schema>
 
 =head1 AUTHOR
 
-Sebastian Riedel, C<sri@cpan.org>
+Sebastian Riedel E<lt>sri@cpan.orgE<gt>
 
 =head1 COPYRIGHT
 

@@ -1,13 +1,24 @@
-use ExtUtils::MakeMaker;
+use inc::Module::Install 0.68;
 
-WriteMakefile(
-    NAME         => 'Catalyst::Model::DBIC',
-    AUTHOR       => 'Sebastian Riedel (sri@oook.de)',
-    PREREQ_PM    => {
-        'Catalyst'            => '5.00',
-        'DBIx::Class'         => 0,
-        'DBIx::Class::Loader' => 0
-    },
-    LICENSE      => 'perl',
-    VERSION_FROM => 'lib/Catalyst/Model/DBIC.pm'
-);
+if ( -e 'MANIFEST.SKIP' ) {
+    system( 'pod2text lib/Catalyst/Model/DBIC.pm > README' );
+}
+
+name 'Catalyst-Model-DBIC';
+all_from 'lib/Catalyst/Model/DBIC.pm';
+
+requires 'Catalyst::Runtime' => '5.0000';
+requires 'DBIx::Class';
+requires 'DBIx::Class::Loader';
+
+test_requires 'Test::More';
+
+print <<EOWARNING;
+****************************************************
+This module has been deprecated. You should be using
+Catalyst::Model::DBIC::Schema instead.
+****************************************************
+EOWARNING
+
+auto_install;
+WriteAll;

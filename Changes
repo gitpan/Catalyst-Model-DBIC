@@ -1,5 +1,8 @@
 Revision history for Perl extension Catalyst::Model::DBIC.
 
+0.16  Wed Mar 05 2008
+    - repackaged again
+
 0.15  Mon Feb 26 2007
     - repackaged - no functional changes
 

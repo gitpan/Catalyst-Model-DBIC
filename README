@@ -1,5 +1,5 @@
 NAME
-    Catalyst::Model::DBIC - DBIC Model Class
+    Catalyst::Model::DBIC - (DEPRECATED) DBIC Model Class
 
 SYNOPSIS
         # use the helper
@@ -20,25 +20,31 @@ SYNOPSIS
 
         1;
 
-        # As object method
-        $c->comp('MyApp::Model::DBIC::Table')->search(...);
+        $c->model('DBIC')->table('foo')->search(...);
 
-        # As class method
         MyApp::Model::DBIC::Table->search(...);
+
+DEPRECATION NOTICE
+    This module has been deprecated in favor of the schema-based
+    Catalyst::Model::DBIC::Schema. This module should only be considered as
+    a temporary measure if you are porting from Catalyst::Model::CDBI.
 
 DESCRIPTION
     This is the "DBIx::Class" model class. It's built on top of
     "DBIx::Class::Loader".
 
-  new
-    Initializes DBIx::Class::Loader and loads classes using the class
-    config. Also attempts to borg all the classes.
+METHODS
+    new Initializes DBIx::Class::Loader and loads classes using the class
+        config.
+
+    $self->table($name)
+        Returns the class for given table name.
 
 SEE ALSO
-    Catalyst, DBIx::Class DBIx::Class::Loader
+    Catalyst, DBIx::Class Catalyst::Model::DBIC::Schema
 
 AUTHOR
-    Sebastian Riedel, "sri@cpan.org"
+    Sebastian Riedel <sri@cpan.org>
 
 COPYRIGHT
     This program is free software, you can redistribute it and/or modify it

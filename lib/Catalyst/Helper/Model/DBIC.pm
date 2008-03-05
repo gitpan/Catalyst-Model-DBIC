@@ -1,6 +1,7 @@
 package Catalyst::Helper::Model::DBIC;
 
 use strict;
+use warnings;
 use DBIx::Class::Loader;
 use File::Spec;
 
@@ -99,7 +100,7 @@ L<Catalyst::Response>, L<Catalyst::Helper>
 
 =head1 AUTHOR
 
-Sebastian Riedel, C<sri@oook.de>
+Sebastian Riedel E<lt>sri@cpan.orgE<gt>
 
 =head1 LICENSE
 
