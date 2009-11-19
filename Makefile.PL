@@ -1,4 +1,4 @@
-use inc::Module::Install 0.68;
+use inc::Module::Install 0.91;
 
 if ( -e 'MANIFEST.SKIP' ) {
     system( 'pod2text lib/Catalyst/Model/DBIC.pm > README' );
@@ -20,5 +20,6 @@ Catalyst::Model::DBIC::Schema instead.
 ****************************************************
 EOWARNING
 
-auto_install;
+repository 'http://dev.catalyst.perl.org/repos/Catalyst/trunk/Catalyst-Model-DBIC/';
+
 WriteAll;

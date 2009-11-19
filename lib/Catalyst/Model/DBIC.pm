@@ -7,7 +7,7 @@ use base 'Catalyst::Model';
 use NEXT;
 use DBIx::Class::Loader;
 
-our $VERSION = '0.16';
+our $VERSION = '0.17';
 
 __PACKAGE__->mk_accessors('loader');
 
